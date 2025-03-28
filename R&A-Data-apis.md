@@ -15,12 +15,13 @@ For bulk data access where extraction of high levels of data is required to be d
 ## 2. Pre-Requisites
 
 In order to be able to use these APIs, you need the following product versions:
+| | |
+| -------- | -------- |
+| `R&A Platform` | **v24.4** (OAS version only) |
+| `OHIP Platform` | **v24.3** |
+| `Identity Provider` | **OCIM** (are not available for SSD environments)|
 
-* R&A Platform v24.4 (OAS version only)
-* OHIP Platform v24.3
-* OCIM as the Identity Platform (these APIs are not available for SSD environments)
-
-Additionally, In order to be able to use these APIs, Hoteliers are required to purchase an additional add-on SKUs. For vendors, the existing OHIP Subscription can be used with a pay per call model or they can be included in the Hotel's SKU contract. Please contact your Oracle Representative for further details.
+> Additionally, In order to be able to use these APIs, Hoteliers are required to purchase an additional add-on SKUs. For vendors, the existing OHIP Subscription can be used with a pay per call model or they can be included in the Hotel's SKU contract. Please contact your Oracle Representative for further details.
 
 ## 3. Using R&A Data APIs
 
@@ -30,79 +31,34 @@ To be able to invoke any OHIP API, an application must be registered within OHIP
 
 ## 4. Subject Areas
 
-These APIs provide access to data from existing R&A Subject Areas. Each API will provide access to one subject area. The details of which data points can be fetched for each Subject Area can be found on the respective API specification.  All these APIs are available under one single endpoint - OHIP Gateway endpoint, followed by "/rna/v1/graphql/".
+These APIs provide access to data from existing R&A Subject Areas. Each API will provide access to one subject area. The details of which data points can be fetched for each Subject Area can be found on the respective API specification. All these APIs are available under one single endpoint - OHIP Gateway endpoint, followed by "/rna/v1/graphql/".
 
 List of subject areas available:
-
-* ARAccountsReceivable
-* ARAgingReport
-* ARLedger
-* Activities
-* BookingsBlock
-* BookingsBlockProductionChanges
-* BookingsBlockStatusChanges
-* BookingsReservation
-* CateringEventForecast
-* CateringEventPostings
-* CateringEventStatusChanges
-* CateringEventTypes
-* CateringEventsAndResources
-* ChangesLog
-* ConfigurationChain
-* ConfigurationResort
-* EFolio
-* ExportMappings
-* FinancialCommissions
-* FinancialDepositLedger
-* FinancialGuestLedger
-* FinancialTransactionCodes
-* FinancialTransactionDetails
-* FinancialTransactionsSummary
-* InventoryFunctionSpaces
-* InventoryHousekeepingManagementRoom
-* InventoryHousekeepingManagementTaskSheet
-* InventoryRooms
-* InventoryRoomsManagement
-* ProfilesAccounts
-* ProfilesAddresses
-* ProfilesCommunications
-* ProfilesContacts
-* ProfilesIndividuals
-* ProfilesLoyalty
-* ProfilesLoyaltyClaims
-* ProfilesLoyaltyTransactions
-* ProfilesNotes
-* ProfilesRelationshipTypes
-* ProfilesRelationships
-* Property
-* RatesBuckets
-* RatesCategories
-* RatesClasses
-* RatesCodeDetails
-* RatesCodes
-* RatesDepositAndCancellationRules
-* RatesHurdles
-* RatesRateSeasons
-* RatesRestrictions
-* RatesTiers
-* ResortBudgetForecast
-* RevenueFixedCharges
-* RevenueGroupsAndTypes
-* RevenuePackages
-* SalesManagerGoals
-* SimpleReportsActivities
-* SimpleReportsBookingBlocks
-* SimpleReportsBookingsReservation
-* SimpleReportsEvents
-* SimpleReportsFinancialTransactions
-* SimpleReportsProfileIndividuals
-* StatisticsForecastSummary
-* StatisticsHistoryAndForecast
-* StatisticsManagersReport
-* StatisticsReservationPace
-* StatisticsReservationsDaily
-* StatisticsReservationsDailySummary
-* StatisticsReservationsSummary
+| | | |
+| ---------------------------------- | ----------------------------------- | ---------------------------------------- |
+| ARAccountsReceivable | ARAgingReport | ARLedger |
+| Activities | BookingsBlock | BookingsBlockProductionChanges |
+| BookingsBlockStatusChanges | BookingsReservation | CateringEventForecast |
+| CateringEventPostings | CateringEventStatusChanges | CateringEventTypes |
+| CateringEventsAndResources | ChangesLog | ConfigurationChain |
+| ConfigurationResort | EFolio | ExportMappings |
+| FinancialCommissions | FinancialDepositLedger | FinancialGuestLedger |
+| FinancialTransactionCodes | FinancialTransactionDetails | FinancialTransactionsSummary |
+| InventoryFunctionSpaces | InventoryHousekeepingManagementRoom | InventoryHousekeepingManagementTaskSheet |
+| InventoryRooms | InventoryRoomsManagement | ProfilesAccounts |
+| ProfilesAddresses | ProfilesCommunications | ProfilesContacts |
+| ProfilesIndividuals | ProfilesLoyalty | ProfilesLoyaltyClaims |
+| ProfilesLoyaltyTransactions | ProfilesNotes | ProfilesRelationshipTypes |
+| ProfilesRelationships | Property | RatesBuckets |
+| RatesCategories | RatesClasses | RatesCodeDetails |
+| RatesCodes | RatesDepositAndCancellationRules | RatesHurdles |
+| RatesRateSeasons | RatesRestrictions | RatesTiers |
+| ResortBudgetForecast | RevenueFixedCharges | RevenueGroupsAndTypes |
+| RevenuePackages | SalesManagerGoals | SimpleReportsActivities |
+| SimpleReportsBookingBlocks | SimpleReportsBookingsReservation | SimpleReportsEvents |
+| SimpleReportsFinancialTransactions | SimpleReportsProfileIndividuals | StatisticsForecastSummary |
+| StatisticsHistoryAndForecast | StatisticsManagersReport | StatisticsReservationPace |
+| StatisticsReservationsDaily | StatisticsReservationsDailySummary | StatisticsReservationsSummary |
 
 ## 5. FAQ
 
@@ -112,29 +68,29 @@ No, the new GraphQL API is designed for bulk data extraction. For advanced filte
 b. Can customers misuse the GraphQL API for bulk data extraction and overload the database or service?
 There are multiple safeguards in place to prevent misuse. Data constraints limit the volume of data that can be extracted, including maximum date ranges, maximum data points, mandatory input filters, and a cap on the number of records per request. Additionally, database profiling restricts the resources allocated to individual users or requests, such as limiting CPU usage.
 
-c. Does this mean that I no longer need to include Reporting and Analytics Data Access (B97404) when quoting one of the two new SKUs? (B110418 / B110419)
-Correct. Either B110418 / B110419 SKUs include the functionality of B97404. If customer is looking for the functionality of B97404, B110418 should be positioned.
+c. Does this mean that I no longer need to include Reporting and Analytics Data Access (`B97404`) when quoting one of the two new SKUs? (`B110418` / `B110419`)
+Correct. Either `B110418` / `B110419` SKUs include the functionality of `B97404`. If customer is looking for the functionality of `B97404`, `B110418` should be positioned.
 
-d. I have contracts with Reporting and Analytics Data Access (B97404) to be renewed prior the expected General Availability timeframes for the new SKUs. What should I do?
-The contract should be renewed without any changes to B97404. SKU updates should be handled on the following contract renewal.
+d. I have contracts with Reporting and Analytics Data Access (`B97404`) to be renewed prior the expected General Availability timeframes for the new SKUs. What should I do?
+The contract should be renewed without any changes to `B97404`. SKU updates should be handled on the following contract renewal.
 
 e. What are the key differences between the two SKUs?
 Both SKUs provide access to R&A Data APIs for the customer's own use. The difference lies in how API usage is charged in the case they have a vendor wishing to also access the R&A Data APIs: with one SKU, the partner pays per use; with the other, the customer covers the partner's unrestricted access, eliminating per-use charges.
 
 f. How can customers decide which is the best fit?
 
-* Choosing the right SKU depends on both the customer and their vendor(s) R&A Data API needs. If vendors have specific requirements, they will communicate them directly to customers similar to OHIP partners.
-* If a customer is not using a vendor requiring R&A Data API access, then "Data Access for Customers" is the best choice (B110418).
+- Choosing the right SKU depends on both the customer and their vendor(s) R&A Data API needs. If vendors have specific requirements, they will communicate them directly to customers similar to OHIP partners.
+- If a customer is not using a vendor requiring R&A Data API access, then "Data Access for Customers" is the best choice (`B110418`).
 
 g. Is there an ideal SKU for an existing R&A Data Access customer to choose when their contract is up for renewal?
 
-* To achieve a like-for-like functionality conversion, use Data Access for Customers (B110418), which allows customers to keep using the R&A data model and send data via SFTP or object storage.
-* If needed, 3rd party vendors can access the R&A Data API on a pay-per-usage basis (via OHIP SKU B92141).
-* Alternatively, the customer may purchase Data Access for Customers & Vendors (B110419) if they want to grant the vendor unrestricted access without per-usage charges. Kindly note that significant discounts will not be permitted with this option.
+- To achieve a like-for-like functionality conversion, use Data Access for Customers (`B110418`), which allows customers to keep using the R&A data model and send data via SFTP or object storage.
+- If needed, 3rd party vendors can access the R&A Data API on a pay-per-usage basis (via OHIP SKU `B92141`).
+- Alternatively, the customer may purchase Data Access for Customers & Vendors (`B110419`) if they want to grant the vendor unrestricted access without per-usage charges. Kindly note that significant discounts will not be permitted with this option.
 
 h. What is the best resource if I still have questions about these SKUs or If I want to better understand which SKU I should propose to my customer?
 
-* Please use the existing channel you have with the partnership team.
+- Please use the existing channel you have with the partnership team.
 
-i. How do I know if I should sell B110418 or B110419?
-The key to distinguish these 2 SKUs is by understand who owns the IP of the solution. If the IP is owned by the customer, SKU B110418 should be used even if that solution is developed by an SI (SI implements but IP is owned by customer). Otherwise SKU B110419 should be used.
+i. How do I know if I should sell `B110418` or `B110419`?
+The key to distinguish these 2 SKUs is by understand who owns the IP of the solution. If the IP is owned by the customer, SKU `B110418` should be used even if that solution is developed by an SI (SI implements but IP is owned by customer). Otherwise SKU `B110419` should be used.
